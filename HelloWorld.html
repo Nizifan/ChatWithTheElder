@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Cocos2d-JS</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+</head>
+<body>   
+    <canvas id="gameCanvas" width="450" height="800"></canvas>
+    <script type="text/javascript" src="cocos2d-js-v3.13-lite.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/StartScene.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/resource.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="src/PlayScene.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="src/ResultScene.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+          window.onload = function(){
+              cc.game.onStart = function(){
+                  //load resources
+					  cc.LoaderScene.preload(g_resources,function(){
+                      cc.director.runScene(new StartScene());
+                  }, this);
+              };
+              cc.game.run("gameCanvas");
+          };
+    </script>
+</body>
+</html>
